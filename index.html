@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>LIFE OS с питомцем</title>
+<title>LIFE OS</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   :root {
@@ -35,35 +35,27 @@
       radial-gradient(ellipse at top left, rgba(123, 47, 247, 0.15) 0%, transparent 50%),
       radial-gradient(ellipse at bottom right, rgba(241, 7, 163, 0.1) 0%, transparent 50%);
   }
-  
   .app { max-width: 640px; margin: 0 auto; padding: 16px; padding-bottom: 120px; }
-  
-  /* PET */
   .pet-container {
     position: fixed;
     z-index: 100;
     pointer-events: auto;
     cursor: grab;
-    transition: transform 0.1s;
     user-select: none;
-    -webkit-user-select: none;
     touch-action: none;
   }
   .pet-container:active { cursor: grabbing; }
   .pet-container.dragging { transform: scale(1.15); }
-  
   .pet {
     width: 80px;
     height: 80px;
     position: relative;
     animation: petFloat 3s ease-in-out infinite;
   }
-  
   @keyframes petFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
   }
-  
   .pet-body {
     width: 100%;
     height: 100%;
@@ -73,12 +65,10 @@
     box-shadow: 0 0 30px rgba(123, 47, 247, 0.6), inset 0 -10px 20px rgba(0,0,0,0.3);
     animation: petBreathe 2s ease-in-out infinite;
   }
-  
   @keyframes petBreathe {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
   }
-  
   .pet-eye {
     position: absolute;
     width: 12px;
@@ -116,7 +106,6 @@
     0%, 96%, 100% { transform: scaleY(1); }
     98% { transform: scaleY(0.1); }
   }
-  
   .pet-mouth {
     position: absolute;
     bottom: 18px;
@@ -145,7 +134,6 @@
     border: none;
     border-radius: 0 0 20px 20px;
   }
-  
   .pet-cheek {
     position: absolute;
     width: 10px;
@@ -157,7 +145,6 @@
   }
   .pet-cheek.left { left: 10px; }
   .pet-cheek.right { right: 10px; }
-  
   .pet-ear {
     position: absolute;
     width: 16px;
@@ -169,8 +156,6 @@
   }
   .pet-ear.left { left: 12px; transform: rotate(-15deg); }
   .pet-ear.right { right: 12px; transform: rotate(15deg); }
-  
-  /* Уровень питомца — теперь снизу, понятно */
   .pet-level-badge {
     position: absolute;
     bottom: -10px;
@@ -186,7 +171,6 @@
     border: 2px solid #fff;
     white-space: nowrap;
   }
-  
   .pet-bubble {
     position: absolute;
     top: -50px;
@@ -219,7 +203,6 @@
     border-bottom: 1px solid var(--border-active);
     transform: rotate(45deg);
   }
-  
   .tear {
     position: absolute;
     width: 6px;
@@ -232,17 +215,13 @@
   }
   .tear.left { left: 20px; top: 35px; animation-delay: 0s; }
   .tear.right { right: 20px; top: 35px; animation-delay: 0.5s; }
-  
   @keyframes tearDrop {
     0% { opacity: 0; transform: translateY(0) scale(0.5); }
     20% { opacity: 1; transform: translateY(5px) scale(1); }
     100% { opacity: 0; transform: translateY(25px) scale(0.8); }
   }
-  
   .pet.crying .tear { display: block; }
   .pet:not(.crying) .tear { display: none; }
-  
-  /* HEADER */
   .header {
     display: flex;
     justify-content: space-between;
@@ -275,8 +254,6 @@
   }
   .level-badge .lvl { font-size: 26px; font-weight: 900; line-height: 1; }
   .level-badge .xp { font-size: 11px; opacity: 0.9; margin-top: 4px; font-weight: 600; }
-  
-  /* NAV */
   .nav-wrapper { margin-bottom: 20px; }
   .nav {
     display: flex;
@@ -310,14 +287,12 @@
     border-color: transparent;
     box-shadow: 0 4px 20px rgba(123, 47, 247, 0.4);
   }
-  
   .section { display: none; animation: slideIn 0.4s; }
   .section.active { display: block; }
   @keyframes slideIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
   .card {
     background: var(--card);
     backdrop-filter: blur(20px);
@@ -345,7 +320,6 @@
     background: var(--accent);
     box-shadow: 0 0 10px var(--accent);
   }
-  
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -373,7 +347,6 @@
     color: transparent;
   }
   .stat-card .label { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-  
   .progress-ring-container {
     display: flex;
     align-items: center;
@@ -405,7 +378,6 @@
   .progress-info { flex: 1; }
   .progress-info h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
   .progress-info p { font-size: 13px; color: var(--dim); line-height: 1.5; }
-  
   .habit-item {
     display: flex;
     align-items: center;
@@ -443,7 +415,6 @@
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
   }
   .habit-item.done .check::after { content: '✓'; color: #fff; font-weight: 900; font-size: 16px; }
-  
   .add-btn {
     width: 100%;
     padding: 16px;
@@ -459,7 +430,6 @@
     transition: all 0.3s;
   }
   .add-btn:hover { transform: translateY(-2px); }
-  
   .habit-full {
     display: flex;
     align-items: center;
@@ -489,7 +459,6 @@
     align-items: center;
     justify-content: center;
   }
-  
   .timer-display { text-align: center; padding: 30px 20px; }
   .timer-time {
     font-size: 88px;
@@ -513,7 +482,6 @@
   .mode-selector { display: flex; gap: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 6px; border-radius: 16px; }
   .mode-btn { flex: 1; padding: 12px; background: transparent; border: none; border-radius: 12px; color: var(--dim); font-size: 12px; font-weight: 700; cursor: pointer; }
   .mode-btn.active { background: var(--gradient); color: #fff; }
-  
   .note-input {
     width: 100%;
     padding: 16px;
@@ -551,7 +519,6 @@
     align-items: center;
     justify-content: center;
   }
-  
   .mood-selector { display: flex; justify-content: space-around; margin-bottom: 24px; gap: 10px; }
   .mood-btn {
     font-size: 36px;
@@ -583,7 +550,6 @@
   .mood-day.today { border-color: var(--accent); box-shadow: 0 0 10px rgba(123, 47, 247, 0.3); }
   .mood-day-labels { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 6px; }
   .mood-day-labels div { text-align: center; font-size: 10px; color: var(--dim); text-transform: uppercase; }
-  
   .water-tracker { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 16px 0; }
   .water-glass {
     width: 44px;
@@ -609,7 +575,6 @@
   .water-glass:hover { transform: translateY(-4px); }
   .water-info { text-align: center; margin-top: 12px; font-size: 14px; color: var(--dim); }
   .water-info b { color: var(--accent3); font-size: 20px; }
-  
   .sleep-input-row { display: flex; gap: 10px; margin-bottom: 16px; }
   .sleep-input { flex: 1; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 14px; }
   .sleep-input:focus { outline: none; border-color: var(--accent); }
@@ -618,7 +583,6 @@
   .sleep-stat { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 12px; text-align: center; }
   .sleep-stat .val { font-size: 20px; font-weight: 900; color: var(--accent3); }
   .sleep-stat .lbl { font-size: 11px; color: var(--dim); margin-top: 4px; }
-  
   .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .achievement {
     background: var(--card);
@@ -635,7 +599,6 @@
   .achievement .name { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
   .achievement .desc { font-size: 10px; color: var(--dim); line-height: 1.4; }
   .achievement.locked { opacity: 0.4; filter: grayscale(1); }
-  
   .modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -687,7 +650,6 @@
   .modal-actions button { flex: 1; padding: 14px; border: none; border-radius: 14px; font-size: 14px; font-weight: 700; cursor: pointer; }
   .modal-actions .cancel { background: var(--card); color: var(--text); border: 1px solid var(--border); }
   .modal-actions .save { background: var(--gradient); color: #fff; }
-  
   .toast {
     position: fixed;
     top: 20px;
@@ -704,10 +666,8 @@
     font-size: 14px;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
-  
   .empty-state { text-align: center; padding: 40px 20px; color: var(--dim); }
   .empty-state .icon { font-size: 56px; margin-bottom: 12px; opacity: 0.4; }
-  
   .fab {
     position: fixed;
     bottom: 30px;
@@ -727,7 +687,6 @@
     justify-content: center;
   }
   .fab:hover { transform: scale(1.1); }
-  
   @media (max-width: 520px) {
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
     .stat-card .value { font-size: 24px; }
@@ -749,7 +708,6 @@
   </defs>
 </svg>
 
-<!-- PET -->
 <div class="pet-container" id="pet-container" style="top: 100px; left: 10px;">
   <div class="pet-bubble" id="pet-bubble">Привет! 👋</div>
   <div class="pet" id="pet">
@@ -779,6 +737,8 @@
       <div class="xp" id="xp-display">0/100 XP</div>
     </div>
   </div>
+  
+  <div id="auth-section"></div>
   
   <div class="nav-wrapper">
     <div class="nav">
@@ -924,7 +884,7 @@
 
 <div class="modal" id="modal">
   <div class="modal-content">
-    <div class="modal-title" id="modal-title">Новая привычка</div>
+    <div class="modal-title">Новая привычка</div>
     <input class="modal-input" id="modal-input" placeholder="Название">
     <div class="emoji-picker" id="emoji-picker"></div>
     <div class="modal-actions">
@@ -939,6 +899,7 @@
 <script>
 const $ = id => document.getElementById(id);
 const STORAGE_KEY = 'lifeos_pet_v3';
+const CF_WORKER_URL = 'https://life-os-api.djogrinder22.workers.dev';
 const EMOJIS = ['💪','📚','🏃','💧','🧘','😴','🍎','✍️','🎨','🎵','💻','🌱','📖','🧠','🚶','🥗','🎯','🌅'];
 const QUOTES = [
   "Маленькие шаги каждый день ведут к большим переменам.",
@@ -952,7 +913,6 @@ const QUOTES = [
   "Каждый день — новый шанс изменить жизнь.",
   "Не сравнивай себя с другими. Сравнивай с собой вчерашним."
 ];
-
 const ACHIEVEMENTS = [
   { id: 'first_habit', icon: '🎯', name: 'Первый шаг', desc: 'Создай первую привычку', check: d => d.habits.length >= 1 },
   { id: 'five_habits', icon: '⭐', name: 'Мастер', desc: 'Создай 5 привычек', check: d => d.habits.length >= 5 },
@@ -969,6 +929,10 @@ let selectedEmoji = '💪';
 let timerState = { mode: 'focus', time: 25*60, running: false, interval: null };
 let petSpamCount = 0;
 let petSpamTimer = null;
+let cfUserId = null;
+let cfSecret = null;
+let isCloudSync = false;
+let syncTimer = null;
 
 function loadData() {
   try {
@@ -988,7 +952,7 @@ function loadData() {
   return { habits: [], notes: [], moods: {}, xp: 0, level: 1, streak: 0, lastActive: null, todayDone: {}, focusSessions: 0, focusMinutes: 0, water: {}, sleepHistory: [], achievements: [], petXP: 0, petLevel: 1, petPosition: { top: 100, left: 10 }, moodXPToday: {} };
 }
 
-function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); scheduleCloudSave(); }
 function todayKey() { const d = new Date(); return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`; }
 function formatDate(d) {
   const days = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
@@ -1003,7 +967,6 @@ function getGreeting() {
   return 'Добрый вечер 🌆';
 }
 
-// ЗВУК ТАЙМЕРА
 function playTimerSound() {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1021,9 +984,7 @@ function playTimerSound() {
       osc.start(startTime);
       osc.stop(startTime + 0.4);
     });
-  } catch(e) {
-    console.log('Audio not supported');
-  }
+  } catch(e) {}
 }
 
 function addXP(amount) {
@@ -1063,7 +1024,6 @@ function checkAchievements() {
   saveData();
 }
 
-// NAV
 document.querySelectorAll('.nav-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -1091,16 +1051,13 @@ function renderDashboard() {
   const done = data.habits.filter(h => data.todayDone[today]?.includes(h.id)).length;
   const total = data.habits.length;
   $('stat-today').textContent = `${done}/${total}`;
-  
   const pct = total > 0 ? (done / total) * 100 : 0;
   const circle = $('progress-circle');
   const circumference = 2 * Math.PI * 42;
   circle.style.strokeDashoffset = circumference - (pct / 100) * circumference;
   $('progress-pct').textContent = Math.round(pct) + '%';
-  
   const titles = ['Начни день!', 'Отлично!', 'Так держать!', 'Почти готово!', 'Супер! 🎉'];
   $('progress-title').textContent = titles[Math.min(4, Math.floor(pct / 25))];
-  
   const container = $('today-habits');
   if (data.habits.length === 0) {
     container.innerHTML = '<div class="empty-state"><div class="icon">📝</div><div>Добавь привычку</div></div>';
@@ -1115,7 +1072,6 @@ function renderDashboard() {
       </div>`;
     }).join('');
   }
-  
   $('quote').textContent = `"${QUOTES[new Date().getDate() % QUOTES.length]}"`;
 }
 
@@ -1203,7 +1159,6 @@ function deleteHabit(id) {
   renderAll();
 }
 
-// TIMER
 document.querySelectorAll('.mode-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
@@ -1277,7 +1232,6 @@ function renderTimer() {
   updateTimerDisplay();
 }
 
-// NOTES
 $('save-note-btn').addEventListener('click', () => {
   const text = $('note-input').value.trim();
   if (!text) { showToast('Напиши что-нибудь'); return; }
@@ -1319,14 +1273,11 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-// MOOD — ИСПРАВЛЕНО: только 1 раз в день даёт XP
 document.querySelectorAll('.mood-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const today = todayKey();
     const mood = btn.dataset.mood;
     data.moods[today] = mood;
-    
-    // Проверяем, давали ли уже XP сегодня за настроение
     if (!data.moodXPToday[today]) {
       data.moodXPToday[today] = true;
       addXP(5);
@@ -1337,7 +1288,6 @@ document.querySelectorAll('.mood-btn').forEach(btn => {
       showPetBubble(`Настроение: ${mood}`);
       showToast(`Сохранено ${mood}`);
     }
-    
     saveData();
     checkAchievements();
     renderMood();
@@ -1354,7 +1304,6 @@ function renderMood() {
   const firstDay = new Date(year, month, 1).getDay();
   const offset = firstDay === 0 ? 6 : firstDay - 1;
   const today = todayKey();
-  
   let html = '';
   for (let i = 0; i < offset; i++) html += '<div class="mood-day empty"></div>';
   for (let d = 1; d <= daysInMonth; d++) {
@@ -1364,19 +1313,15 @@ function renderMood() {
     html += `<div class="mood-day ${isToday ? 'today' : ''}">${mood}</div>`;
   }
   cal.innerHTML = html;
-  
   const moods = Object.values(data.moods);
   const counts = {};
   moods.forEach(m => counts[m] = (counts[m] || 0) + 1);
   const total = moods.length;
-  
-  // Подсказка про XP
   if (data.moodXPToday[today]) {
     $('mood-hint').textContent = '✓ Настроение отмечено (XP уже начислен)';
   } else {
     $('mood-hint').textContent = 'Отметь настроение — получи +5 XP';
   }
-  
   if (total === 0) {
     $('mood-stats').innerHTML = 'Отметь настроение сегодня';
   } else {
@@ -1385,7 +1330,6 @@ function renderMood() {
   }
 }
 
-// WATER
 function renderWater() {
   const today = todayKey();
   if (!data.water[today]) data.water[today] = [];
@@ -1429,7 +1373,6 @@ $('water-reset').addEventListener('click', () => {
   showToast('Сброшено');
 });
 
-// SLEEP
 $('sleep-save').addEventListener('click', () => {
   const start = $('sleep-start').value;
   const end = $('sleep-end').value;
@@ -1463,7 +1406,6 @@ function renderSleep() {
   $('sleep-best').textContent = best.toFixed(1);
 }
 
-// ACHIEVEMENTS
 function renderAchievements() {
   $('achievements-grid').innerHTML = ACHIEVEMENTS.map(a => {
     const unlocked = data.achievements.includes(a.id);
@@ -1475,7 +1417,6 @@ function renderAchievements() {
   }).join('');
 }
 
-// PET DRAG
 const petContainer = $('pet-container');
 let isDragging = false;
 let dragOffsetX = 0;
@@ -1494,11 +1435,9 @@ function startDrag(e) {
   e.preventDefault();
   isDragging = true;
   petContainer.classList.add('dragging');
-  
   const clientX = e.touches ? e.touches[0].clientX : e.clientX;
   const clientY = e.touches ? e.touches[0].clientY : e.clientY;
   const rect = petContainer.getBoundingClientRect();
-  
   dragOffsetX = clientX - rect.left;
   dragOffsetY = clientY - rect.top;
 }
@@ -1509,19 +1448,14 @@ document.addEventListener('touchmove', drag, { passive: false });
 function drag(e) {
   if (!isDragging) return;
   e.preventDefault();
-  
   const clientX = e.touches ? e.touches[0].clientX : e.clientX;
   const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-  
   let newLeft = clientX - dragOffsetX;
   let newTop = clientY - dragOffsetY;
-  
   const maxX = window.innerWidth - petContainer.offsetWidth;
   const maxY = window.innerHeight - petContainer.offsetHeight;
-  
   newLeft = Math.max(0, Math.min(newLeft, maxX));
   newTop = Math.max(0, Math.min(newTop, maxY));
-  
   petContainer.style.left = newLeft + 'px';
   petContainer.style.top = newTop + 'px';
 }
@@ -1533,7 +1467,6 @@ function endDrag() {
   if (!isDragging) return;
   isDragging = false;
   petContainer.classList.remove('dragging');
-  
   data.petPosition = {
     top: parseInt(petContainer.style.top),
     left: parseInt(petContainer.style.left)
@@ -1541,7 +1474,6 @@ function endDrag() {
   saveData();
 }
 
-// PET
 function showPetBubble(msg) {
   const bubble = $('pet-bubble');
   bubble.textContent = msg;
@@ -1555,10 +1487,8 @@ function updatePet() {
   const mood = data.moods[today];
   const mouth = $('pet-mouth');
   const pet = $('pet');
-  
   mouth.className = 'pet-mouth';
   pet.classList.remove('crying');
-  
   if (mood === '😫') {
     mouth.classList.add('sad');
     pet.classList.add('crying');
@@ -1573,15 +1503,12 @@ function updatePet() {
 
 petContainer.addEventListener('click', (e) => {
   if (isDragging) return;
-  
   petSpamCount++;
   clearTimeout(petSpamTimer);
   petSpamTimer = setTimeout(() => { petSpamCount = 0; }, 2000);
-  
   const messages = ['Привет! 👋', 'Ещё! 🎉', 'Ура! ⚡', 'Круто! 🔥', 'Молодец! 💪', 'Так держать! 🚀'];
   const msg = petSpamCount < messages.length ? messages[petSpamCount - 1] : `+${Math.min(petSpamCount, 5)} XP! ⚡`;
   showPetBubble(msg);
-  
   if (petSpamCount > 2) {
     const xp = Math.min(petSpamCount, 5);
     addXP(xp);
@@ -1590,7 +1517,6 @@ petContainer.addEventListener('click', (e) => {
   }
 });
 
-// FAB
 $('fab').addEventListener('click', () => {
   const activeTab = document.querySelector('.nav-btn.active').dataset.tab;
   if (activeTab === 'habits') $('add-habit-btn').click();
@@ -1602,7 +1528,6 @@ $('fab').addEventListener('click', () => {
   }
 });
 
-// TOAST
 function showToast(msg) {
   const t = $('toast');
   t.textContent = msg;
@@ -1610,7 +1535,6 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// RENDER ALL
 function renderAll() {
   updateHeader();
   renderDashboard();
@@ -1622,18 +1546,111 @@ function renderAll() {
   renderSleep();
   renderAchievements();
   updatePet();
+  updateAuthUI();
 }
 
-// INIT
+function loadCreds() {
+  try {
+    cfUserId = localStorage.getItem('cf_user_id');
+    cfSecret = localStorage.getItem('cf_secret');
+    if (cfUserId && cfSecret) {
+      isCloudSync = true;
+      loadFromCloud();
+    }
+  } catch(e) {}
+}
+
+function updateAuthUI() {
+  const authSection = $('auth-section');
+  if (!authSection) return;
+  if (isCloudSync) {
+    authSection.innerHTML = '<div class="card" style="border-color: var(--success);"><div class="card-title" style="color: var(--success);">☁️ ОБЛАКО АКТИВНО</div><div style="display: flex; justify-content: space-between; align-items: center;"><div><div style="font-size: 13px; color: var(--text2);">ID: <b>' + cfUserId + '</b></div><div style="font-size: 11px; color: var(--dim); margin-top: 4px;">Данные синхронизируются</div></div><button onclick="disconnectCloud()" style="padding: 10px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: var(--danger); border-radius: 10px; cursor: pointer; font-size: 12px; font-weight: 600;">Выйти</button></div></div>';
+  } else {
+    authSection.innerHTML = '<div class="card"><div class="card-title"><span class="dot"></span> ☁️ ОБЛАЧНАЯ СИНХРОНИЗАЦИЯ</div><p style="font-size: 12px; color: var(--dim); margin-bottom: 12px; line-height: 1.5;">Создай аккаунт и данные будут в облаке</p><input type="text" id="cf-id" placeholder="Имя (например, ivan)" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); margin-bottom: 10px; font-size: 14px;"><input type="password" id="cf-secret" placeholder="Пароль (не забудь!)" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); margin-bottom: 12px; font-size: 14px;"><div style="display: flex; gap: 10px;"><button onclick="connectCloud()" style="flex: 1; padding: 12px; background: var(--gradient); border: none; border-radius: 12px; color: #fff; font-weight: 700; cursor: pointer; font-size: 13px;">🔗 Подключить</button></div></div>';
+  }
+}
+
+async function connectCloud() {
+  const id = document.getElementById('cf-id').value.trim().toLowerCase();
+  const secret = document.getElementById('cf-secret').value;
+  if (!id || !secret) { showToast('Заполни оба поля'); return; }
+  if (!/^[a-z0-9_]{3,30}$/.test(id)) { showToast('ID: 3-30 символов, латиница'); return; }
+  if (secret.length < 4) { showToast('Пароль минимум 4 символа'); return; }
+  cfUserId = id;
+  cfSecret = secret;
+  const cloudData = await loadFromCloud();
+  if (!cloudData || Object.keys(cloudData).length === 0) {
+    await saveToCloud();
+    showToast('☁️ Создано! Данные в облаке');
+  } else {
+    const cloudSize = JSON.stringify(cloudData).length;
+    const localSize = JSON.stringify(data).length;
+    if (cloudSize > localSize) {
+      data = { ...data, ...cloudData };
+      saveData();
+      showToast('☁️ Данные из облака');
+    } else {
+      await saveToCloud();
+      showToast('☁️ Данные в облако');
+    }
+  }
+  isCloudSync = true;
+  localStorage.setItem('cf_user_id', cfUserId);
+  localStorage.setItem('cf_secret', cfSecret);
+  updateAuthUI();
+  renderAll();
+}
+
+function disconnectCloud() {
+  if (!confirm('Отключить облако?')) return;
+  isCloudSync = false;
+  cfUserId = null;
+  cfSecret = null;
+  localStorage.removeItem('cf_user_id');
+  localStorage.removeItem('cf_secret');
+  updateAuthUI();
+  showToast('Облако отключено');
+}
+
+async function loadFromCloud() {
+  if (!cfUserId || !cfSecret) return null;
+  try {
+    const url = CF_WORKER_URL + '?id=' + cfUserId + '&key=' + cfSecret;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return await res.json();
+  } catch(e) {
+    console.error('Cloud load error:', e);
+    showToast('⚠️ Ошибка загрузки');
+    return null;
+  }
+}
+
+async function saveToCloud() {
+  if (!cfUserId || !cfSecret) return;
+  try {
+    const url = CF_WORKER_URL + '?id=' + cfUserId + '&key=' + cfSecret;
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  } catch(e) {
+    console.error('Cloud save error:', e);
+  }
+}
+
+function scheduleCloudSave() {
+  if (!isCloudSync) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(saveToCloud, 3000);
+}
+
 initPetPosition();
+loadCreds();
 updateHeader();
 renderAll();
-
-const today = todayKey();
-data.lastActive = today;
-saveData();
 checkAchievements();
-
 setTimeout(() => showPetBubble('Привет! 👋'), 1000);
 </script>
 
