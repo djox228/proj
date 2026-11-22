@@ -7,23 +7,24 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   :root {
-    --bg: #0a0a1a;
-    --card: rgba(20, 20, 45, 0.6);
-    --card-hover: rgba(30, 30, 60, 0.7);
-    --border: rgba(100, 100, 200, 0.15);
-    --border-active: rgba(123, 47, 247, 0.5);
-    --text: #fff;
-    --text2: #c0c0e0;
-    --dim: #6b7280;
-    --accent: #7b2ff7;
-    --accent2: #f107a3;
-    --accent3: #00d4ff;
-    --success: #10b981;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-    --gradient: linear-gradient(135deg, #7b2ff7 0%, #f107a3 100%);
-    --gradient2: linear-gradient(135deg, #00d4ff 0%, #7b2ff7 100%);
-    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --bg: #0f0f1a;
+    --bg2: #1a1a2e;
+    --card: rgba(30, 30, 55, 0.5);
+    --card-hover: rgba(40, 40, 70, 0.6);
+    --border: rgba(120, 120, 200, 0.12);
+    --border-active: rgba(123, 47, 247, 0.4);
+    --text: #f0f0ff;
+    --text2: #c8c8e0;
+    --dim: #8888a8;
+    --accent: #8b5cf6;
+    --accent2: #ec4899;
+    --accent3: #38bdf8;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --danger: #f87171;
+    --gradient: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    --gradient2: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -32,10 +33,13 @@
     min-height: 100vh;
     overflow-x: hidden;
     background-image: 
-      radial-gradient(ellipse at top left, rgba(123, 47, 247, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom right, rgba(241, 7, 163, 0.1) 0%, transparent 50%);
+      radial-gradient(ellipse at 20% 10%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(56, 189, 248, 0.04) 0%, transparent 70%);
   }
   .app { max-width: 640px; margin: 0 auto; padding: 16px; padding-bottom: 120px; }
+  
+  /* PET */
   .pet-container {
     position: fixed;
     z-index: 100;
@@ -62,7 +66,7 @@
     background: var(--gradient);
     border-radius: 50% 50% 45% 45%;
     position: relative;
-    box-shadow: 0 0 30px rgba(123, 47, 247, 0.6), inset 0 -10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.4), inset 0 -10px 20px rgba(0,0,0,0.2);
     animation: petBreathe 2s ease-in-out infinite;
   }
   @keyframes petBreathe {
@@ -77,7 +81,7 @@
     border-radius: 50%;
     top: 22px;
     animation: petBlink 4s ease-in-out infinite;
-    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    box-shadow: 0 0 10px rgba(255,255,255,0.4);
   }
   .pet-eye.left { left: 18px; }
   .pet-eye.right { right: 18px; }
@@ -86,7 +90,7 @@
     position: absolute;
     width: 6px;
     height: 8px;
-    background: #000;
+    background: #1a1a2e;
     border-radius: 50%;
     top: 4px;
     left: 3px;
@@ -117,7 +121,6 @@
     border-top: none;
     border-radius: 0 0 20px 20px;
     transition: all 0.3s;
-    box-shadow: 0 0 8px rgba(255,255,255,0.3);
   }
   .pet-mouth.happy { width: 24px; height: 12px; }
   .pet-mouth.sad {
@@ -138,7 +141,7 @@
     position: absolute;
     width: 10px;
     height: 6px;
-    background: rgba(255, 182, 193, 0.6);
+    background: rgba(255, 182, 193, 0.5);
     border-radius: 50%;
     bottom: 22px;
     filter: blur(1px);
@@ -152,7 +155,7 @@
     background: var(--gradient);
     border-radius: 50% 50% 0 0;
     top: -8px;
-    box-shadow: 0 0 10px rgba(123, 47, 247, 0.5);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
   }
   .pet-ear.left { left: 12px; transform: rotate(-15deg); }
   .pet-ear.right { right: 12px; transform: rotate(15deg); }
@@ -167,7 +170,7 @@
     font-weight: 900;
     padding: 3px 10px;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(123, 47, 247, 0.6);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
     border: 2px solid #fff;
     white-space: nowrap;
   }
@@ -207,11 +210,10 @@
     position: absolute;
     width: 6px;
     height: 10px;
-    background: linear-gradient(180deg, #00d4ff, #0099cc);
+    background: linear-gradient(180deg, #38bdf8, #0ea5e9);
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     opacity: 0;
     animation: tearDrop 1.5s ease-in infinite;
-    box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
   }
   .tear.left { left: 20px; top: 35px; animation-delay: 0s; }
   .tear.right { right: 20px; top: 35px; animation-delay: 0.5s; }
@@ -222,6 +224,8 @@
   }
   .pet.crying .tear { display: block; }
   .pet:not(.crying) .tear { display: none; }
+
+  /* HEADER */
   .header {
     display: flex;
     justify-content: space-between;
@@ -238,7 +242,7 @@
     font-size: 22px; 
     font-weight: 800; 
     margin-bottom: 6px;
-    background: linear-gradient(135deg, #fff 0%, #c0c0e0 100%);
+    background: linear-gradient(135deg, #f0f0ff 0%, #c8c8e0 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -249,11 +253,40 @@
     padding: 12px 18px;
     border-radius: 18px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(123, 47, 247, 0.4);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
     min-width: 80px;
   }
   .level-badge .lvl { font-size: 26px; font-weight: 900; line-height: 1; }
   .level-badge .xp { font-size: 11px; opacity: 0.9; margin-top: 4px; font-weight: 600; }
+
+  /* SHARE & CLOSE BUTTONS */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .action-btn {
+    flex: 1;
+    padding: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .action-btn:hover { background: var(--card-hover); transform: translateY(-2px); }
+  .action-btn.share { background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(139, 92, 246, 0.2)); border-color: rgba(56, 189, 248, 0.3); }
+  .action-btn.close { background: linear-gradient(135deg, rgba(248, 113, 113, 0.15), rgba(236, 72, 153, 0.15)); border-color: rgba(248, 113, 113, 0.3); }
+
+  /* NAV */
   .nav-wrapper { margin-bottom: 20px; }
   .nav {
     display: flex;
@@ -285,14 +318,16 @@
     background: var(--gradient);
     color: #fff;
     border-color: transparent;
-    box-shadow: 0 4px 20px rgba(123, 47, 247, 0.4);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
   }
+
   .section { display: none; animation: slideIn 0.4s; }
   .section.active { display: block; }
   @keyframes slideIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
   .card {
     background: var(--card);
     backdrop-filter: blur(20px);
@@ -320,6 +355,7 @@
     background: var(--accent);
     box-shadow: 0 0 10px var(--accent);
   }
+
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -341,12 +377,13 @@
     font-size: 28px; 
     font-weight: 900; 
     margin-bottom: 4px;
-    background: linear-gradient(135deg, #fff 0%, #c0c0e0 100%);
+    background: linear-gradient(135deg, #f0f0ff 0%, #c8c8e0 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .stat-card .label { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
   .progress-ring-container {
     display: flex;
     align-items: center;
@@ -361,11 +398,11 @@
   .progress-ring { position: relative; width: 100px; height: 100px; }
   .progress-ring svg { transform: rotate(-90deg); }
   .progress-ring circle { fill: none; stroke-width: 8; stroke-linecap: round; }
-  .progress-ring .bg { stroke: rgba(255,255,255,0.1); }
+  .progress-ring .bg { stroke: rgba(255,255,255,0.08); }
   .progress-ring .fg { 
     stroke: url(#gradient);
     transition: stroke-dashoffset 0.5s;
-    filter: drop-shadow(0 0 6px rgba(123, 47, 247, 0.6));
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
   }
   .progress-ring .center {
     position: absolute;
@@ -378,21 +415,22 @@
   .progress-info { flex: 1; }
   .progress-info h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
   .progress-info p { font-size: 13px; color: var(--dim); line-height: 1.5; }
+
   .habit-item {
     display: flex;
     align-items: center;
     gap: 14px;
     padding: 16px;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.02);
     border: 1px solid var(--border);
     border-radius: 16px;
     margin-bottom: 10px;
     cursor: pointer;
     transition: all 0.3s;
   }
-  .habit-item:hover { background: rgba(255,255,255,0.06); transform: translateX(4px); }
+  .habit-item:hover { background: rgba(255,255,255,0.05); transform: translateX(4px); }
   .habit-item.done {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.12), rgba(52, 211, 153, 0.04));
     border-color: var(--success);
   }
   .habit-item .emoji { font-size: 28px; }
@@ -407,14 +445,15 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.15);
   }
   .habit-item.done .check {
     background: var(--success);
     border-color: var(--success);
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
   }
   .habit-item.done .check::after { content: '✓'; color: #fff; font-weight: 900; font-size: 16px; }
+
   .add-btn {
     width: 100%;
     padding: 16px;
@@ -426,10 +465,11 @@
     font-weight: 700;
     cursor: pointer;
     margin-bottom: 16px;
-    box-shadow: 0 4px 20px rgba(123, 47, 247, 0.4);
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
     transition: all 0.3s;
   }
   .add-btn:hover { transform: translateY(-2px); }
+
   .habit-full {
     display: flex;
     align-items: center;
@@ -447,8 +487,8 @@
   .habit-full .streak-info { font-size: 12px; color: var(--dim); }
   .habit-full .streak-info b { color: var(--warning); }
   .habit-full .delete {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.2);
     color: var(--danger);
     width: 40px;
     height: 40px;
@@ -459,6 +499,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .timer-display { text-align: center; padding: 30px 20px; }
   .timer-time {
     font-size: 88px;
@@ -473,19 +514,20 @@
   .timer-mode { font-size: 13px; color: var(--dim); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
   .timer-controls { display: flex; gap: 12px; justify-content: center; margin-bottom: 30px; }
   .timer-btn { padding: 14px 28px; border: none; border-radius: 14px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
-  .timer-btn.primary { background: var(--gradient); color: #fff; box-shadow: 0 4px 20px rgba(123, 47, 247, 0.4); }
+  .timer-btn.primary { background: var(--gradient); color: #fff; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3); }
   .timer-btn.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
   .timer-stats { display: flex; justify-content: space-around; padding-top: 20px; border-top: 1px solid var(--border); }
   .timer-stat { text-align: center; }
   .timer-stat .val { font-size: 28px; font-weight: 900; color: var(--accent3); }
   .timer-stat .lbl { font-size: 11px; color: var(--dim); text-transform: uppercase; margin-top: 4px; }
-  .mode-selector { display: flex; gap: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 6px; border-radius: 16px; }
+  .mode-selector { display: flex; gap: 8px; margin-bottom: 20px; background: rgba(0,0,0,0.15); padding: 6px; border-radius: 16px; }
   .mode-btn { flex: 1; padding: 12px; background: transparent; border: none; border-radius: 12px; color: var(--dim); font-size: 12px; font-weight: 700; cursor: pointer; }
   .mode-btn.active { background: var(--gradient); color: #fff; }
+
   .note-input {
     width: 100%;
     padding: 16px;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.15);
     border: 1px solid var(--border);
     border-radius: 16px;
     color: var(--text);
@@ -508,8 +550,8 @@
   .note-item .meta { display: flex; justify-content: space-between; align-items: center; }
   .note-item .date { font-size: 11px; color: var(--dim); }
   .note-item .del {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.2);
     color: var(--danger);
     width: 32px;
     height: 32px;
@@ -519,6 +561,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .mood-selector { display: flex; justify-content: space-around; margin-bottom: 24px; gap: 10px; }
   .mood-btn {
     font-size: 36px;
@@ -534,7 +577,7 @@
     justify-content: center;
   }
   .mood-btn:hover { transform: scale(1.15); }
-  .mood-btn.selected { border-color: var(--accent); box-shadow: 0 0 25px rgba(123, 47, 247, 0.6); transform: scale(1.2); }
+  .mood-btn.selected { border-color: var(--accent); box-shadow: 0 0 25px rgba(139, 92, 246, 0.4); transform: scale(1.2); }
   .mood-calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 16px; }
   .mood-day {
     aspect-ratio: 1;
@@ -547,15 +590,16 @@
     font-size: 18px;
   }
   .mood-day.empty { opacity: 0.15; }
-  .mood-day.today { border-color: var(--accent); box-shadow: 0 0 10px rgba(123, 47, 247, 0.3); }
+  .mood-day.today { border-color: var(--accent); box-shadow: 0 0 10px rgba(139, 92, 246, 0.3); }
   .mood-day-labels { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 6px; }
   .mood-day-labels div { text-align: center; font-size: 10px; color: var(--dim); text-transform: uppercase; }
+
   .water-tracker { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 16px 0; }
   .water-glass {
     width: 44px;
     height: 56px;
-    background: rgba(0, 212, 255, 0.1);
-    border: 2px solid rgba(0, 212, 255, 0.3);
+    background: rgba(56, 189, 248, 0.08);
+    border: 2px solid rgba(56, 189, 248, 0.25);
     border-radius: 8px 8px 12px 12px;
     cursor: pointer;
     transition: all 0.3s;
@@ -567,22 +611,24 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 0;
-    background: linear-gradient(180deg, rgba(0, 212, 255, 0.6), rgba(0, 212, 255, 0.9));
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.5), rgba(56, 189, 248, 0.8));
     transition: height 0.5s;
   }
   .water-glass.filled::before { height: 100%; }
-  .water-glass.filled { border-color: var(--accent3); box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); }
+  .water-glass.filled { border-color: var(--accent3); box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
   .water-glass:hover { transform: translateY(-4px); }
   .water-info { text-align: center; margin-top: 12px; font-size: 14px; color: var(--dim); }
   .water-info b { color: var(--accent3); font-size: 20px; }
+
   .sleep-input-row { display: flex; gap: 10px; margin-bottom: 16px; }
-  .sleep-input { flex: 1; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 14px; }
+  .sleep-input { flex: 1; padding: 12px; background: rgba(0,0,0,0.15); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 14px; }
   .sleep-input:focus { outline: none; border-color: var(--accent); }
   .sleep-input label { display: block; font-size: 11px; color: var(--dim); margin-bottom: 6px; text-transform: uppercase; }
   .sleep-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
-  .sleep-stat { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 12px; text-align: center; }
+  .sleep-stat { background: rgba(0,0,0,0.15); border-radius: 12px; padding: 12px; text-align: center; }
   .sleep-stat .val { font-size: 20px; font-weight: 900; color: var(--accent3); }
   .sleep-stat .lbl { font-size: 11px; color: var(--dim); margin-top: 4px; }
+
   .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .achievement {
     background: var(--card);
@@ -593,16 +639,17 @@
     transition: all 0.3s;
     position: relative;
   }
-  .achievement.unlocked { border-color: var(--warning); background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); }
+  .achievement.unlocked { border-color: var(--warning); background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(251, 191, 36, 0.03)); }
   .achievement.unlocked::before { content: '✨'; position: absolute; top: 8px; right: 8px; font-size: 14px; }
   .achievement .icon { font-size: 32px; margin-bottom: 8px; }
   .achievement .name { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
   .achievement .desc { font-size: 10px; color: var(--dim); line-height: 1.4; }
   .achievement.locked { opacity: 0.4; filter: grayscale(1); }
+
   .modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.8);
     backdrop-filter: blur(15px);
     z-index: 1000;
     display: none;
@@ -612,20 +659,20 @@
   }
   .modal.show { display: flex; }
   .modal-content {
-    background: linear-gradient(135deg, rgba(20, 20, 50, 0.98), rgba(40, 20, 60, 0.98));
+    background: linear-gradient(135deg, rgba(25, 25, 50, 0.98), rgba(40, 25, 60, 0.98));
     border: 1px solid var(--border-active);
     border-radius: 28px;
     padding: 28px;
     width: 100%;
     max-width: 420px;
     backdrop-filter: blur(30px);
-    box-shadow: 0 0 40px rgba(123, 47, 247, 0.3);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
   }
   .modal-title { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
   .modal-input {
     width: 100%;
     padding: 14px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.2);
     border: 1px solid var(--border);
     border-radius: 14px;
     color: var(--text);
@@ -637,7 +684,7 @@
   .emoji-picker { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 18px; }
   .emoji-opt {
     font-size: 26px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.2);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 10px;
@@ -645,11 +692,12 @@
     text-align: center;
   }
   .emoji-opt:hover { transform: scale(1.15); }
-  .emoji-opt.selected { border-color: var(--accent); background: rgba(123, 47, 247, 0.2); }
+  .emoji-opt.selected { border-color: var(--accent); background: rgba(139, 92, 246, 0.15); }
   .modal-actions { display: flex; gap: 10px; }
   .modal-actions button { flex: 1; padding: 14px; border: none; border-radius: 14px; font-size: 14px; font-weight: 700; cursor: pointer; }
   .modal-actions .cancel { background: var(--card); color: var(--text); border: 1px solid var(--border); }
   .modal-actions .save { background: var(--gradient); color: #fff; }
+
   .toast {
     position: fixed;
     top: 20px;
@@ -661,13 +709,15 @@
     border-radius: 16px;
     font-weight: 700;
     z-index: 2000;
-    box-shadow: 0 8px 30px rgba(123, 47, 247, 0.5);
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
     transition: transform 0.4s;
     font-size: 14px;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
+
   .empty-state { text-align: center; padding: 40px 20px; color: var(--dim); }
   .empty-state .icon { font-size: 56px; margin-bottom: 12px; opacity: 0.4; }
+
   .fab {
     position: fixed;
     bottom: 30px;
@@ -680,13 +730,14 @@
     color: #fff;
     font-size: 28px;
     cursor: pointer;
-    box-shadow: 0 8px 30px rgba(123, 47, 247, 0.5);
+    box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
     z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .fab:hover { transform: scale(1.1); }
+
   @media (max-width: 520px) {
     .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
     .stat-card .value { font-size: 24px; }
@@ -702,12 +753,13 @@
 <svg width="0" height="0" style="position:absolute">
   <defs>
     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7b2ff7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f107a3;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
     </linearGradient>
   </defs>
 </svg>
 
+<!-- PET -->
 <div class="pet-container" id="pet-container" style="top: 100px; left: 10px;">
   <div class="pet-bubble" id="pet-bubble">Привет! 👋</div>
   <div class="pet" id="pet">
@@ -729,7 +781,7 @@
 <div class="app">
   <div class="header">
     <div class="user-info">
-      <h1 id="greeting">Добрый вечер 🌆</h1>
+      <h1 id="greeting">Добрый вечер</h1>
       <p id="date-display">Загрузка...</p>
     </div>
     <div class="level-badge">
@@ -737,8 +789,12 @@
       <div class="xp" id="xp-display">0/100 XP</div>
     </div>
   </div>
-  
-  <div id="auth-section"></div>
+
+  <!-- SHARE & CLOSE BUTTONS -->
+  <div class="action-buttons">
+    <button class="action-btn share" id="share-btn">📤 Поделиться</button>
+    <button class="action-btn close" id="close-btn">✕ Закрыть</button>
+  </div>
   
   <div class="nav-wrapper">
     <div class="nav">
@@ -897,9 +953,16 @@
 <div class="toast" id="toast"></div>
 
 <script>
+// Telegram WebApp
+const tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+if (tg) {
+  try { tg.ready(); tg.expand(); } catch(e) {}
+  if (tg.setHeaderColor) tg.setHeaderColor('#0f0f1a');
+  if (tg.setBackgroundColor) tg.setBackgroundColor('#0f0f1a');
+}
+
 const $ = id => document.getElementById(id);
-const STORAGE_KEY = 'lifeos_pet_v3';
-const CF_WORKER_URL = 'https://life-os-api.djogrinder22.workers.dev';
+const STORAGE_KEY = 'lifeos_pet_v4';
 const EMOJIS = ['💪','📚','🏃','💧','🧘','😴','🍎','✍️','🎨','🎵','💻','🌱','📖','🧠','🚶','🥗','🎯','🌅'];
 const QUOTES = [
   "Маленькие шаги каждый день ведут к большим переменам.",
@@ -929,10 +992,6 @@ let selectedEmoji = '💪';
 let timerState = { mode: 'focus', time: 25*60, running: false, interval: null };
 let petSpamCount = 0;
 let petSpamTimer = null;
-let cfUserId = null;
-let cfSecret = null;
-let isCloudSync = false;
-let syncTimer = null;
 
 function loadData() {
   try {
@@ -952,13 +1011,15 @@ function loadData() {
   return { habits: [], notes: [], moods: {}, xp: 0, level: 1, streak: 0, lastActive: null, todayDone: {}, focusSessions: 0, focusMinutes: 0, water: {}, sleepHistory: [], achievements: [], petXP: 0, petLevel: 1, petPosition: { top: 100, left: 10 }, moodXPToday: {} };
 }
 
-function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); scheduleCloudSave(); }
+function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
 function todayKey() { const d = new Date(); return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`; }
 function formatDate(d) {
   const days = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
   const months = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
   return `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`;
 }
+
+// ИСПРАВЛЕННОЕ ПРИВЕТСТВИЕ С ЭМОДЗИ
 function getGreeting() {
   const h = new Date().getHours();
   if (h < 6) return 'Доброй ночи 🌙';
@@ -992,8 +1053,8 @@ function addXP(amount) {
   const newLevel = Math.floor(data.xp / 100) + 1;
   if (newLevel > data.level) {
     data.level = newLevel;
-    showToast(`🎉 Уровень ${newLevel}!`);
-    showPetBubble(`Уровень ${newLevel}! 🎉`);
+    showToast('🎉 Уровень ' + newLevel + '!');
+    showPetBubble('Уровень ' + newLevel + '! 🎉');
   }
   saveData();
   updateHeader();
@@ -1005,8 +1066,8 @@ function addPetXP(amount) {
   const newLevel = Math.floor(data.petXP / 50) + 1;
   if (newLevel > data.petLevel) {
     data.petLevel = newLevel;
-    showPetBubble(`Я вырос! 🎉`);
-    showToast(`Питомец: уровень ${newLevel}!`);
+    showPetBubble('Я вырос! 🎉');
+    showToast('Питомец: уровень ' + newLevel + '!');
   }
   saveData();
   updatePet();
@@ -1016,14 +1077,15 @@ function checkAchievements() {
   ACHIEVEMENTS.forEach(a => {
     if (!data.achievements.includes(a.id) && a.check(data)) {
       data.achievements.push(a.id);
-      showToast(`🏆 ${a.name}!`);
-      showPetBubble(`Достижение! 🏆`);
+      showToast('🏆 ' + a.name + '!');
+      showPetBubble('Достижение! 🏆');
       addPetXP(20);
     }
   });
   saveData();
 }
 
+// NAV
 document.querySelectorAll('.nav-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -1040,7 +1102,7 @@ function updateHeader() {
   $('greeting').textContent = getGreeting();
   $('date-display').textContent = formatDate(new Date());
   $('level-display').textContent = data.level;
-  $('xp-display').textContent = `${data.xp % 100}/100 XP`;
+  $('xp-display').textContent = (data.xp % 100) + '/100 XP';
 }
 
 function renderDashboard() {
@@ -1048,9 +1110,9 @@ function renderDashboard() {
   $('stat-xp').textContent = data.xp;
   $('stat-focus').textContent = Math.floor(data.focusMinutes / 60);
   const today = todayKey();
-  const done = data.habits.filter(h => data.todayDone[today]?.includes(h.id)).length;
+  const done = data.habits.filter(h => data.todayDone[today] && data.todayDone[today].includes(h.id)).length;
   const total = data.habits.length;
-  $('stat-today').textContent = `${done}/${total}`;
+  $('stat-today').textContent = done + '/' + total;
   const pct = total > 0 ? (done / total) * 100 : 0;
   const circle = $('progress-circle');
   const circumference = 2 * Math.PI * 42;
@@ -1063,16 +1125,15 @@ function renderDashboard() {
     container.innerHTML = '<div class="empty-state"><div class="icon">📝</div><div>Добавь привычку</div></div>';
   } else {
     container.innerHTML = data.habits.map(h => {
-      const done = data.todayDone[today]?.includes(h.id);
-      return `<div class="habit-item ${done ? 'done' : ''}" onclick="toggleHabit('${h.id}')">
-        <div class="emoji">${h.emoji}</div>
-        <div class="name">${h.name}</div>
-        <div class="streak">🔥 ${h.streak || 0}</div>
-        <div class="check"></div>
-      </div>`;
+      const done = data.todayDone[today] && data.todayDone[today].includes(h.id);
+      return '<div class="habit-item ' + (done ? 'done' : '') + '" onclick="toggleHabit(\'' + h.id + '\')">' +
+        '<div class="emoji">' + h.emoji + '</div>' +
+        '<div class="name">' + h.name + '</div>' +
+        '<div class="streak">🔥 ' + (h.streak || 0) + '</div>' +
+        '<div class="check"></div></div>';
     }).join('');
   }
-  $('quote').textContent = `"${QUOTES[new Date().getDate() % QUOTES.length]}"`;
+  $('quote').textContent = '"' + QUOTES[new Date().getDate() % QUOTES.length] + '"';
 }
 
 function toggleHabit(id) {
@@ -1102,7 +1163,7 @@ function updateStreak() {
   const today = todayKey();
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
-  const yKey = `${yesterday.getFullYear()}-${yesterday.getMonth()+1}-${yesterday.getDate()}`;
+  const yKey = yesterday.getFullYear() + '-' + (yesterday.getMonth()+1) + '-' + yesterday.getDate();
   const todayDone = (data.todayDone[today] || []).length;
   const yesterdayDone = (data.todayDone[yKey] || []).length;
   if (todayDone > 0 && yesterdayDone > 0) data.streak = (data.streak || 0) + 1;
@@ -1115,13 +1176,12 @@ function renderHabits() {
     container.innerHTML = '<div class="empty-state"><div class="icon">🎯</div><div>Нет привычек</div></div>';
     return;
   }
-  container.innerHTML = data.habits.map(h => `
-    <div class="habit-full">
-      <div class="emoji">${h.emoji}</div>
-      <div class="info"><div class="name">${h.name}</div><div class="streak-info">Серия: <b>🔥 ${h.streak || 0}</b></div></div>
-      <button class="delete" onclick="deleteHabit('${h.id}')">🗑</button>
-    </div>
-  `).join('');
+  container.innerHTML = data.habits.map(h => 
+    '<div class="habit-full"><div class="emoji">' + h.emoji + '</div>' +
+    '<div class="info"><div class="name">' + h.name + '</div>' +
+    '<div class="streak-info">Серия: <b>🔥 ' + (h.streak || 0) + '</b></div></div>' +
+    '<button class="delete" onclick="deleteHabit(\'' + h.id + '\')">🗑</button></div>'
+  ).join('');
 }
 
 $('add-habit-btn').addEventListener('click', () => {
@@ -1133,7 +1193,7 @@ $('add-habit-btn').addEventListener('click', () => {
 
 function renderEmojiPicker() {
   $('emoji-picker').innerHTML = EMOJIS.map(e => 
-    `<div class="emoji-opt ${e === selectedEmoji ? 'selected' : ''}" onclick="selectEmoji('${e}')">${e}</div>`
+    '<div class="emoji-opt ' + (e === selectedEmoji ? 'selected' : '') + '" onclick="selectEmoji(\'' + e + '\')">' + e + '</div>'
   ).join('');
 }
 
@@ -1154,11 +1214,12 @@ $('modal-save').addEventListener('click', () => {
 
 function deleteHabit(id) {
   if (!confirm('Удалить?')) return;
-  data.habits = data.habits.filter(h => h.id === id);
+  data.habits = data.habits.filter(h => h.id !== id);
   saveData();
   renderAll();
 }
 
+// TIMER
 document.querySelectorAll('.mode-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
@@ -1175,7 +1236,7 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
 function updateTimerDisplay() {
   const m = Math.floor(timerState.time / 60);
   const s = timerState.time % 60;
-  $('timer-time').textContent = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  $('timer-time').textContent = m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0');
   const modes = { focus: '🎯 Фокус', short: '☕ Перерыв', long: '🌴 Отдых' };
   $('timer-mode').textContent = timerState.running ? modes[timerState.mode] + '...' : 'Пауза';
 }
@@ -1232,6 +1293,7 @@ function renderTimer() {
   updateTimerDisplay();
 }
 
+// NOTES
 $('save-note-btn').addEventListener('click', () => {
   const text = $('note-input').value.trim();
   if (!text) { showToast('Напиши что-нибудь'); return; }
@@ -1253,16 +1315,14 @@ function renderNotes() {
   }
   container.innerHTML = data.notes.map(n => {
     const d = new Date(n.date);
-    return `<div class="note-item">
-      <div class="text">${escapeHtml(n.text)}</div>
-      <div class="meta"><div class="date">${formatDate(d)} ${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')}</div>
-      <button class="del" onclick="deleteNote('${n.id}')">🗑</button></div>
-    </div>`;
+    return '<div class="note-item"><div class="text">' + escapeHtml(n.text) + '</div>' +
+      '<div class="meta"><div class="date">' + formatDate(d) + ' ' + d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0') + '</div>' +
+      '<button class="del" onclick="deleteNote(\'' + n.id + '\')">🗑</button></div></div>';
   }).join('');
 }
 
 function deleteNote(id) {
-  data.notes = data.notes.filter(n => n.id === id);
+  data.notes = data.notes.filter(n => n.id !== id);
   saveData();
   renderNotes();
 }
@@ -1273,6 +1333,7 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+// MOOD
 document.querySelectorAll('.mood-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const today = todayKey();
@@ -1282,11 +1343,11 @@ document.querySelectorAll('.mood-btn').forEach(btn => {
       data.moodXPToday[today] = true;
       addXP(5);
       addPetXP(10);
-      showPetBubble(`Настроение: ${mood} +5 XP`);
-      showToast(`Сохранено ${mood} +5 XP`);
+      showPetBubble('Настроение: ' + mood + ' +5 XP');
+      showToast('Сохранено ' + mood + ' +5 XP');
     } else {
-      showPetBubble(`Настроение: ${mood}`);
-      showToast(`Сохранено ${mood}`);
+      showPetBubble('Настроение: ' + mood);
+      showToast('Сохранено ' + mood);
     }
     saveData();
     checkAchievements();
@@ -1307,10 +1368,10 @@ function renderMood() {
   let html = '';
   for (let i = 0; i < offset; i++) html += '<div class="mood-day empty"></div>';
   for (let d = 1; d <= daysInMonth; d++) {
-    const key = `${year}-${month+1}-${d}`;
+    const key = year + '-' + (month+1) + '-' + d;
     const mood = data.moods[key] || '';
     const isToday = key === today;
-    html += `<div class="mood-day ${isToday ? 'today' : ''}">${mood}</div>`;
+    html += '<div class="mood-day ' + (isToday ? 'today' : '') + '">' + mood + '</div>';
   }
   cal.innerHTML = html;
   const moods = Object.values(data.moods);
@@ -1326,10 +1387,11 @@ function renderMood() {
     $('mood-stats').innerHTML = 'Отметь настроение сегодня';
   } else {
     const top = Object.entries(counts).sort((a,b) => b[1]-a[1])[0];
-    $('mood-stats').innerHTML = `Всего: <b style="color:var(--accent)">${total}</b><br>Чаще: <b style="color:var(--accent)">${top[0]} (${top[1]})</b>`;
+    $('mood-stats').innerHTML = 'Всего: <b style="color:var(--accent)">' + total + '</b><br>Чаще: <b style="color:var(--accent)">' + top[0] + ' (' + top[1] + ')</b>';
   }
 }
 
+// WATER
 function renderWater() {
   const today = todayKey();
   if (!data.water[today]) data.water[today] = [];
@@ -1373,12 +1435,15 @@ $('water-reset').addEventListener('click', () => {
   showToast('Сброшено');
 });
 
+// SLEEP
 $('sleep-save').addEventListener('click', () => {
   const start = $('sleep-start').value;
   const end = $('sleep-end').value;
   if (!start || !end) { showToast('Заполни оба поля'); return; }
-  const [sh, sm] = start.split(':').map(Number);
-  const [eh, em] = end.split(':').map(Number);
+  const sh = parseInt(start.split(':')[0]);
+  const sm = parseInt(start.split(':')[1]);
+  const eh = parseInt(end.split(':')[0]);
+  const em = parseInt(end.split(':')[1]);
   let startMin = sh * 60 + sm;
   let endMin = eh * 60 + em;
   if (endMin < startMin) endMin += 24 * 60;
@@ -1386,8 +1451,8 @@ $('sleep-save').addEventListener('click', () => {
   data.sleepHistory.push({ date: todayKey(), hours: Math.round(hours * 10) / 10, start, end });
   addXP(5);
   addPetXP(5);
-  showPetBubble(`Сон: ${hours.toFixed(1)}ч 😴`);
-  showToast(`Сохранено: ${hours.toFixed(1)}ч +5 XP`);
+  showPetBubble('Сон: ' + hours.toFixed(1) + 'ч 😴');
+  showToast('Сохранено: ' + hours.toFixed(1) + 'ч +5 XP');
   saveData();
   checkAchievements();
   renderSleep();
@@ -1406,17 +1471,18 @@ function renderSleep() {
   $('sleep-best').textContent = best.toFixed(1);
 }
 
+// ACHIEVEMENTS
 function renderAchievements() {
   $('achievements-grid').innerHTML = ACHIEVEMENTS.map(a => {
     const unlocked = data.achievements.includes(a.id);
-    return `<div class="achievement ${unlocked ? 'unlocked' : 'locked'}">
-      <div class="icon">${a.icon}</div>
-      <div class="name">${a.name}</div>
-      <div class="desc">${a.desc}</div>
-    </div>`;
+    return '<div class="achievement ' + (unlocked ? 'unlocked' : 'locked') + '">' +
+      '<div class="icon">' + a.icon + '</div>' +
+      '<div class="name">' + a.name + '</div>' +
+      '<div class="desc">' + a.desc + '</div></div>';
   }).join('');
 }
 
+// PET DRAG
 const petContainer = $('pet-container');
 let isDragging = false;
 let dragOffsetX = 0;
@@ -1482,7 +1548,7 @@ function showPetBubble(msg) {
 }
 
 function updatePet() {
-  $('pet-level').textContent = `Ур. ${data.petLevel}`;
+  $('pet-level').textContent = 'Ур. ' + data.petLevel;
   const today = todayKey();
   const mood = data.moods[today];
   const mouth = $('pet-mouth');
@@ -1507,24 +1573,51 @@ petContainer.addEventListener('click', (e) => {
   clearTimeout(petSpamTimer);
   petSpamTimer = setTimeout(() => { petSpamCount = 0; }, 2000);
   const messages = ['Привет! 👋', 'Ещё! 🎉', 'Ура! ⚡', 'Круто! 🔥', 'Молодец! 💪', 'Так держать! 🚀'];
-  const msg = petSpamCount < messages.length ? messages[petSpamCount - 1] : `+${Math.min(petSpamCount, 5)} XP! ⚡`;
+  const msg = petSpamCount < messages.length ? messages[petSpamCount - 1] : '+' + Math.min(petSpamCount, 5) + ' XP! ⚡';
   showPetBubble(msg);
   if (petSpamCount > 2) {
     const xp = Math.min(petSpamCount, 5);
     addXP(xp);
     addPetXP(xp);
-    showToast(`+${xp} XP за активность!`);
+    showToast('+' + xp + ' XP за активность!');
   }
 });
 
+// FAB
 $('fab').addEventListener('click', () => {
   const activeTab = document.querySelector('.nav-btn.active').dataset.tab;
   if (activeTab === 'habits') $('add-habit-btn').click();
   else if (activeTab === 'notes') $('note-input').focus();
-  else if (activeTab === 'water') toggleWater(data.water[todayKey()]?.length || 0);
+  else if (activeTab === 'water') toggleWater(data.water[todayKey()] ? data.water[todayKey()].length : 0);
   else {
     document.querySelector('[data-tab="habits"]').click();
     setTimeout(() => $('add-habit-btn').click(), 100);
+  }
+});
+
+// SHARE BUTTON
+$('share-btn').addEventListener('click', () => {
+  const text = 'Я на уровне ' + data.level + ' в Life OS! 🔥 Серия: ' + data.streak + ' дней. Попробуй и ты!';
+  if (tg && tg.openTelegramLink) {
+    const url = window.location.href;
+    tg.openTelegramLink('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text));
+  } else if (navigator.share) {
+    navigator.share({ title: 'Life OS', text: text, url: window.location.href }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text + ' ' + window.location.href).then(() => {
+      showToast('Скопировано! 📋');
+    }).catch(() => {
+      showToast('Не удалось скопировать');
+    });
+  }
+});
+
+// CLOSE BUTTON
+$('close-btn').addEventListener('click', () => {
+  if (tg && tg.close) {
+    tg.close();
+  } else {
+    showToast('Закрой вкладку вручную');
   }
 });
 
@@ -1546,111 +1639,18 @@ function renderAll() {
   renderSleep();
   renderAchievements();
   updatePet();
-  updateAuthUI();
 }
 
-function loadCreds() {
-  try {
-    cfUserId = localStorage.getItem('cf_user_id');
-    cfSecret = localStorage.getItem('cf_secret');
-    if (cfUserId && cfSecret) {
-      isCloudSync = true;
-      loadFromCloud();
-    }
-  } catch(e) {}
-}
-
-function updateAuthUI() {
-  const authSection = $('auth-section');
-  if (!authSection) return;
-  if (isCloudSync) {
-    authSection.innerHTML = '<div class="card" style="border-color: var(--success);"><div class="card-title" style="color: var(--success);">☁️ ОБЛАКО АКТИВНО</div><div style="display: flex; justify-content: space-between; align-items: center;"><div><div style="font-size: 13px; color: var(--text2);">ID: <b>' + cfUserId + '</b></div><div style="font-size: 11px; color: var(--dim); margin-top: 4px;">Данные синхронизируются</div></div><button onclick="disconnectCloud()" style="padding: 10px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: var(--danger); border-radius: 10px; cursor: pointer; font-size: 12px; font-weight: 600;">Выйти</button></div></div>';
-  } else {
-    authSection.innerHTML = '<div class="card"><div class="card-title"><span class="dot"></span> ☁️ ОБЛАЧНАЯ СИНХРОНИЗАЦИЯ</div><p style="font-size: 12px; color: var(--dim); margin-bottom: 12px; line-height: 1.5;">Создай аккаунт и данные будут в облаке</p><input type="text" id="cf-id" placeholder="Имя (например, ivan)" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); margin-bottom: 10px; font-size: 14px;"><input type="password" id="cf-secret" placeholder="Пароль (не забудь!)" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); margin-bottom: 12px; font-size: 14px;"><div style="display: flex; gap: 10px;"><button onclick="connectCloud()" style="flex: 1; padding: 12px; background: var(--gradient); border: none; border-radius: 12px; color: #fff; font-weight: 700; cursor: pointer; font-size: 13px;">🔗 Подключить</button></div></div>';
-  }
-}
-
-async function connectCloud() {
-  const id = document.getElementById('cf-id').value.trim().toLowerCase();
-  const secret = document.getElementById('cf-secret').value;
-  if (!id || !secret) { showToast('Заполни оба поля'); return; }
-  if (!/^[a-z0-9_]{3,30}$/.test(id)) { showToast('ID: 3-30 символов, латиница'); return; }
-  if (secret.length < 4) { showToast('Пароль минимум 4 символа'); return; }
-  cfUserId = id;
-  cfSecret = secret;
-  const cloudData = await loadFromCloud();
-  if (!cloudData || Object.keys(cloudData).length === 0) {
-    await saveToCloud();
-    showToast('☁️ Создано! Данные в облаке');
-  } else {
-    const cloudSize = JSON.stringify(cloudData).length;
-    const localSize = JSON.stringify(data).length;
-    if (cloudSize > localSize) {
-      data = { ...data, ...cloudData };
-      saveData();
-      showToast('☁️ Данные из облака');
-    } else {
-      await saveToCloud();
-      showToast('☁️ Данные в облако');
-    }
-  }
-  isCloudSync = true;
-  localStorage.setItem('cf_user_id', cfUserId);
-  localStorage.setItem('cf_secret', cfSecret);
-  updateAuthUI();
-  renderAll();
-}
-
-function disconnectCloud() {
-  if (!confirm('Отключить облако?')) return;
-  isCloudSync = false;
-  cfUserId = null;
-  cfSecret = null;
-  localStorage.removeItem('cf_user_id');
-  localStorage.removeItem('cf_secret');
-  updateAuthUI();
-  showToast('Облако отключено');
-}
-
-async function loadFromCloud() {
-  if (!cfUserId || !cfSecret) return null;
-  try {
-    const url = CF_WORKER_URL + '?id=' + cfUserId + '&key=' + cfSecret;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return await res.json();
-  } catch(e) {
-    console.error('Cloud load error:', e);
-    showToast('⚠️ Ошибка загрузки');
-    return null;
-  }
-}
-
-async function saveToCloud() {
-  if (!cfUserId || !cfSecret) return;
-  try {
-    const url = CF_WORKER_URL + '?id=' + cfUserId + '&key=' + cfSecret;
-    await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-  } catch(e) {
-    console.error('Cloud save error:', e);
-  }
-}
-
-function scheduleCloudSave() {
-  if (!isCloudSync) return;
-  clearTimeout(syncTimer);
-  syncTimer = setTimeout(saveToCloud, 3000);
-}
-
+// INIT
 initPetPosition();
-loadCreds();
 updateHeader();
 renderAll();
+
+const today = todayKey();
+data.lastActive = today;
+saveData();
 checkAchievements();
+
 setTimeout(() => showPetBubble('Привет! 👋'), 1000);
 </script>
 
